@@ -1,0 +1,29 @@
+<form action="" id="rg_submit">
+    <input type="text" class="lg-form-control" placeholder="Email Address">
+    <input type="password" class="lg-form-control" placeholder="Create Password">
+    <input type="password" class="lg-form-control" placeholder="Confirm Password">
+    <a href="forgot-password.html">Forgot Password?</a><br>
+    <button type="submit" class="btn-special mt-3 col-auto ms-auto">Register</button>
+    <button type="button" class="btn-special-dark login-btn">Login</button>
+</form>
+
+<script>
+    $('.login-btn').on('click', function() {
+        $.ajax({
+            url: 'login.html',
+            error: err => {
+                console.log("An error occured")
+            },
+            success: function (resp) {
+                $('#uni_modal .modal-title').html('Login Here')
+                $('#uni_modal .modal-body').html(resp)
+            }
+        })
+    })
+
+    $('#rg_submit').submit(function(e) {
+        e.preventDefault()
+
+        alert("Submited")
+    })
+</script>
